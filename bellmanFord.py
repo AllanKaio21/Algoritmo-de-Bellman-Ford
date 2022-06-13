@@ -17,12 +17,14 @@ def bellman_ford(g, s, c=None):
     # Pega aresta
     for u, v in g.get_arestas():
         if v.get_distancia() > u.get_distancia() + u.get_peso(v):
+            print("O grafo contem ciclos negativos!")
             return False
     caminho = []
     for v in g.get_vertices():
         if v.get_id() == c or c == None:
             if v.get_distancia() != sys.maxsize:
                 caminho.append([caminho_minino(v), v.get_distancia()])
+
     # Se não existir caminho minimo
     if not caminho:
         return False

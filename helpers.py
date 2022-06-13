@@ -2,6 +2,7 @@ import matplotlib.pyplot as plt
 import pandas as pd
 import sys
 from igraph import *
+from grafo import grafo
 
 
 def relax(u, v):
@@ -114,3 +115,24 @@ def matrizDeCusto(G):
         matrizCusto.append(linha)
 
     return matrizCusto
+
+
+def manual():
+    dir = input("Grafo dirigido True / False? ")
+    qtd = input("Quantidade de vertices: ")
+    g = grafo(bool(dir))
+    V = [i for i in range(int(qtd))]
+    for i in range(int(qtd)):
+        g.inserir_vertice(i)
+    E = set()
+    resp = 0
+    while resp != 's':
+        v = input("Vertice: ")
+        a = input("Adjacente: ")
+        E.add((v, a))
+        p = input("Peso: ")
+        g.inserir_aresta(int(v)-1, int(a)-1, float(p))
+
+        resp = input("Digite 's' para sair 'c' para continuar: ")
+
+    return [g, V, E]
