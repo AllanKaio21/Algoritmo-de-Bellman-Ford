@@ -1,7 +1,6 @@
 from itertools import combinations
 from random import randint, random
 from grafo import grafo
-from bellmanFord import bellman_ford
 
 
 def ER(n, p, direcionado=False):
@@ -13,6 +12,7 @@ def ER(n, p, direcionado=False):
             V.append(a)
 
     E = set()
+
     for combination in combinations(V, 2):
         a = random()
         if a < p:

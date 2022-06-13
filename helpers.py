@@ -80,8 +80,6 @@ def plotMatriz(M, nome="Matriz"):
     column_labels = [v for v in range(v)]
     row = column_labels
     df = pd.DataFrame(M, columns=column_labels)
-    # colorR = ["red"]
-    # colorC = ["blue"]
     ax.axis('tight')
     ax.axis('off')
     ax.table(cellText=df.values, colLabels=df.columns, rowLabels=row, cellLoc="center",
@@ -136,3 +134,7 @@ def manual():
         resp = input("Digite 's' para sair 'c' para continuar: ")
 
     return [g, V, E]
+
+
+def matrizGrade(G):
+    return 1
